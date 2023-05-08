@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <title>GitFav</title>
+
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="app">
         <header>
             <img src="./assets/gitfav.svg" alt="GitFav logo">
             <div class="search">
-                <!-- <label for="search-input">Type the Github username that you wants to favorite</label> -->
+                <label class="sr-only" for="search-input">Type the Github username that you wants to favorite</label>
                 <input id="search-input" type="text" placeholder="Type the Github username that you wants to favorite">
                 <button id="addButton">
                     <svg width="23" height="21" viewBox="0 0 23 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -33,21 +38,38 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>
+                    <td class="user">
                         <img src="https://github.com/FelipeAmrl.png" alt="image of Felipe Amaral">
                         <p>
                             Felipe Amaral
                             <a href="https://github.com/FelipeAmrl" target="_blank">/FelipeAmaral</a>
                         </p>
-                        
                     </td>
-                    <td>
+                    <td class="repositories">
                         16
                     </td>
-                    <td>
+                    <td class="followers">
                         3
                     </td>
-                    <td>
+                    <td class="action">
+                        <button>Remove</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="user">
+                        <img src="https://github.com/FelipeAmrl.png" alt="image of Felipe Amaral">
+                        <p>
+                            Felipe Amaral
+                            <a href="https://github.com/FelipeAmrl" target="_blank">/FelipeAmaral</a>
+                        </p>
+                    </td>
+                    <td class="repositories">
+                        16
+                    </td>
+                    <td class="followers">
+                        3
+                    </td>
+                    <td class="action">
                         <button>Remove</button>
                     </td>
                 </tr>
