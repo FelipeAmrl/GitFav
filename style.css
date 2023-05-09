@@ -117,6 +117,14 @@ header
     fill: var(--bt-favorite-color);
 }
 
+.table-wrapper
+{
+    width: 100%;
+    border: 1px solid #4A808C;
+    border-radius: 1.2rem;
+    overflow: hidden;
+}
+
 table 
 {
     width: 100%;
@@ -125,27 +133,42 @@ table
     text-align: left;
 
     border-collapse:collapse;
-    border: 1px solid #4A808C; /* pq border n acompanha curvatura? */ 
+    border-spacing: 0;   
 }
-
+ 
 table thead
 {
     background-color: var(--bg-thead);
 }
 
-table th:first-child
+table thead, table tbody tr
 {
-    border-top-left-radius: 1rem;
-}
-
-table th:last-child
-{
-    border-top-right-radius: 1rem;
+    display: table;
+    width: 100%;
+    table-layout: fixed;
 }
 
 table th 
 {
     padding: 1.6rem 0 1.6rem 4rem;
+}
+
+table tbody
+{
+    display: block;
+    max-height: 40rem;
+    overflow-y: scroll;
+}
+
+table tbody::-webkit-scrollbar
+{
+    width: .6rem;
+}
+
+table tbody::-webkit-scrollbar-thumb
+{
+    background-color: #4A808C;
+    border-radius: 999px;
 }
 
 table td
