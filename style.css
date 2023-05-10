@@ -34,6 +34,11 @@
     border-width: 0;
 }
 
+.hide
+{
+    display: none;
+}
+
 body 
 {
     font-size: 1.6rem;
@@ -234,6 +239,30 @@ table tbody tr:nth-child(even)
 {
     background-color: var(--bg-input);
     border: 1px solid #4A808C;
+}
+
+.noFav td
+{
+    display: flex;
+    gap: 6rem;
+    align-items: center;
+    justify-content: center;
+
+    padding: 13rem 0;
+}
+
+.noFav img 
+{
+    width: 13.2rem;
+}
+
+.noFav h2 
+{
+    font-family: 'Roboto Mono', monospace;
+    font-weight: bold;
+    font-size: 4rem;
+    line-height: 2.5rem;
+    color: var(--tt-bg-color);
 }
 
 
