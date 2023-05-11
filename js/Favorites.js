@@ -1,18 +1,4 @@
-export class GithubUser {
-    static search(username)
-    {
-        const endpoint = `https://api.github.com/users/${username}`;
-
-        return fetch(endpoint)
-            .then( data => data.json())
-            .then( ({ login, name, public_repos, followers }) => ({
-                login,
-                name,
-                public_repos,
-                followers
-            })) 
-    }
-}
+import { GithubUser } from "./GithubUser.js";
 
 export class Favorites 
 {
@@ -27,6 +13,37 @@ export class Favorites
         this.entries = JSON.parse(localStorage.getItem('@github-favorites:')) || [];   
     }
 
+    save()
+    {
+        localStorage.setItem('@github-favorites:', JSON.stringify(this.entries));
+    }
+
+    async add(username)
+    {
+        try
+        {
+            const USER_EXISTS = this.entries.find(entry => entry.login === username);
+
+            if(USER_EXISTS)
+                throw new Error('User already registered!')
+
+            const USER = await GithubUser.search(username);
+
+            if(USER.login === undefined) 
+                throw new Error('User not found!');
+
+            this.entries = [USER, ...this.entries];
+
+            this.update();
+            this.save();
+        } 
+        catch(error) 
+        {
+            alert(error.message);
+        }
+        
+    }
+
     delete(user)
     {
         const FILTEREDENTRIES = this.entries.filter( entry => entry.login !== user.login );
@@ -34,6 +51,7 @@ export class Favorites
         this.entries = FILTEREDENTRIES;
 
         this.update();
+        this.save();
     }
 }
 
@@ -46,6 +64,18 @@ export class FavoriteView extends Favorites
         this.tbody = this.root.querySelector('table tbody');
 
         this.update();
+        this.onadd();
+    }
+
+    onadd()
+    {
+        const ADDBUTTON = this.root.querySelector('#addButton');
+
+        ADDBUTTON.onclick = () => {
+            const { value } = this.root.querySelector('#search-input');
+
+            this.add(value);
+        }
     }
 
     update()
