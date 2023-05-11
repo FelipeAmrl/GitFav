@@ -81,6 +81,7 @@ export class FavoriteView extends Favorites
     update()
     {
         this.removeAllTr();
+        this.handleNoFavScreen();
 
         this.entries.forEach( user => {
             const ROW = this.createRow();
@@ -134,7 +135,24 @@ export class FavoriteView extends Favorites
     {
         const ROW = this.tbody.querySelectorAll('tr');
 
-        ROW.forEach( tr => tr.remove() );
+        console.log(this.entries);
+
+        ROW.forEach( tr => {
+            const HAS_NOFAV_CLASS = tr.classList.contains('no-fav');
+
+            if(!HAS_NOFAV_CLASS)
+                tr.remove();
+        });
+    }
+
+    handleNoFavScreen()
+    {
+        const NO_FAV_SCREEN = this.tbody.querySelector('.no-fav');
+
+        if(this.entries == "")
+            NO_FAV_SCREEN.classList.remove('hide');
+        else
+            NO_FAV_SCREEN.classList.add('hide');
     }
 }
 

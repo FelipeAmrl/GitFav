@@ -244,7 +244,7 @@ table tbody tr:nth-child(even)
     border: 1px solid #4A808C;
 }
 
-.noFav td
+.no-fav td
 {
     display: flex;
     gap: 6rem;
@@ -254,12 +254,12 @@ table tbody tr:nth-child(even)
     padding: 13rem 0;
 }
 
-.noFav img 
+.no-fav img 
 {
     width: 13.2rem;
 }
 
-.noFav h2 
+.no-fav h2 
 {
     font-family: 'Roboto Mono', monospace;
     font-weight: bold;
