@@ -162,17 +162,20 @@ table tbody
 {
     display: block;
     max-height: 40rem;
-    overflow-y: scroll;
+    overflow-y: overlay;
 }
 
 table tbody::-webkit-scrollbar
 {
-    width: .6rem;
+    width: 2.1rem;
+    
 }
 
 table tbody::-webkit-scrollbar-thumb
 {
     background-color: #4A808C;
+    background-clip:padding-box;
+    border: 8px solid rgba(0, 0, 0, 0);
     border-radius: 999px;
 }
 
